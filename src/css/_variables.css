@@ -1,0 +1,15 @@
+:root {
+    /* colors */
+    --main-blue-color: #003264;
+
+    --dark-color: #242627;
+    --gray-color: #F7F7F7;
+    --orange-color: #E9862A;
+    --white-color: #FFF;
+    --blue-color: #187CD3;
+    --stroke-color:#EDEDED;
+    
+    /* header */
+    --header-border-color:#F2F2F2;
+
+  }
