@@ -27,15 +27,15 @@ export default {
                 },
                 {
                     title: "Вакансии",
-                    href: "/2"
+                    href: "/about"
                 },
                 {
                     title: "Начало карьеры",
-                    href: "/3"
+                    href: "/about"
                 },
                 {
                     title: "Контакты",
-                    href: "/4"
+                    href: "/about"
                 },
             ]
         }
@@ -49,13 +49,18 @@ export default {
     width: 687px;
     display: flex;
     gap: 64px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.84px;
+    text-align: left;
+
 
     .nav__a {
         position: relative;
         color: var(--dark-color);
         font-size: 16px;
         text-decoration: none;
-        padding-bottom: 5px; /* Пространство под ссылкой */
+        padding-bottom: 5px;
 
         &::before {
             content: "";
