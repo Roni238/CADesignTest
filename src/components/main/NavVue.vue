@@ -1,7 +1,7 @@
 <template>
     <nav class="nav">
         <router-link
-            class="nav__a"
+            class="nav__link"
             v-for="link in links"
             :key="link.title"
             :to="link.href"
@@ -49,16 +49,14 @@ export default {
     width: 687px;
     display: flex;
     gap: 64px;
-    font-size: 16px;
     font-weight: 400;
     line-height: 19.84px;
     text-align: left;
 
-
-    .nav__a {
+    &__link {
         position: relative;
         color: var(--dark-color);
-        font-size: 16px;
+        font-size: var(--p-size);
         text-decoration: none;
         padding-bottom: 5px;
 
@@ -74,10 +72,11 @@ export default {
             transform-origin: center;
             transition: transform 0.3s ease;
         }
-    }
 
-    .router-link-active::before {
-        transform: scaleX(1); /* Показать полоску под активной ссылкой */
+        &.router-link-active::before {
+            transform: scaleX(1); /* полоска под текущей ссылкой */
+        }
     }
 }
 </style>
+

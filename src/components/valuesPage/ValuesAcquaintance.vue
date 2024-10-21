@@ -10,8 +10,8 @@
             Энергия твоего роста! – <br>
             заряжаем твою карьеру
           </h1>
-
-          <button class="acquaintance__button">
+          
+          <button class="acquaintance__button" @click="this.$store.commit('popupModule/setActivePopup', 'popup-call')">
             Cтать частью команды
           </button>
         </div>
@@ -63,7 +63,7 @@ export default {
 
     .acquaintance__title {
       margin-bottom: 85px;
-      font-size: 36px;
+      font-size: var(--h1-size);
       font-weight: 700;
       line-height: 41px;
       text-align: left;
@@ -75,7 +75,7 @@ export default {
       height: 64px;
       border: none;
       background-color: var(--orange-color);
-      font-size: 16px;
+      font-size: var(--p-size);
       font-weight: 700;
       line-height: 18px;
       color: var(--white-color);

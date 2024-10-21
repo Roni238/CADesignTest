@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import SvgIcon from "@/components/SvgIcon.vue";
+import SvgIcon from "@/components/UI/SvgIcon.vue";
 
 export default {
     name: "values-advantage",
@@ -51,6 +51,8 @@ export default {
 
 <style lang="scss" scoped>
 .values-page__advantage {
+    --description-color:#646464;
+    --default-icon-color: #4F4F4F;
     display: flex;
     justify-content: center;
     margin-top: 76px;
@@ -64,34 +66,33 @@ export default {
         background: var(--stroke-color);
 
         .button {
-            --gray-color: #646464;
-        
             max-width: 398px;
             width: 100%;
             height: 377px;
             border: none;
             background: var(--white-color);
-            font-size: 20px;
             font-weight: 400;
             line-height: 24.8px;
             text-align: center;
             cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Переход для тени и трансформации */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
         
             .button__icon {
-                stroke: var(--gray-color);
-                fill: var(--gray-color);
-                transition: fill 0.3s ease, stroke 0.3s ease, transform 0.3s ease; /* Переход для иконки */
+                stroke: var(--default-icon-color);
+                fill: var(--default-icon-color);
+                transition: fill 0.3s ease, stroke 0.3s ease, transform 0.3s ease;
             }
         
             .button__title {
                 margin: 64px 0px 23px 0px;
                 color: var(--dark-color);
+                font-size: var(--h3-size);
             }
         
             .button__description {
-                color: var(--gray-color);
+                color: var(--description-color);
                 opacity: 0;
+                font-size: var(--p-size);
             }
         
             &--active {

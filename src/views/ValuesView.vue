@@ -1,9 +1,9 @@
 <template>
-  <div class="values-page">
+  <main class="values-page">
       <values-acquaintance/>
       <values-advantage/>
       <important-people/>
-  </div>
+  </main>
 </template>
 
 <script>

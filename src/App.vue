@@ -1,27 +1,22 @@
 <template>
-  <pop-up-call v-if="getOpenCallPopup"/>
+  <!-- в корне только компоненты и никаких конструкций для красоты и удобства, все комопненты отсюда в "@/components/main/" -->
+  <main-popup/>
 
-  <header-vue/>
+  <main-header/>
   <router-view/>
   <cookie-window/>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import HeaderVue from '@/components/HeaderVue.vue'
-import CookieWindow from '@/components/CookieWindow.vue'
-import PopUpCall from '@/components/PopUpCall.vue'
+import MainHeader from '@/components/main/MainHeader.vue'
+import CookieWindow from '@/components/main/CookieWindow.vue'
+import MainPopup from '@/components/main/MainPopup.vue'
 
 export default {
   components: {
-    HeaderVue,
+    MainHeader,
     CookieWindow,
-    PopUpCall
-  },
-  computed:{
-    ...mapGetters({
-      getOpenCallPopup:'getOpenCallPopup',
-    }),
+    MainPopup
   },
 }
 </script>
@@ -31,7 +26,7 @@ export default {
 * {
   margin: 0px;
   padding: 0px;
-  font-family: 'Helios', sans-serif;
+  font-family: var(--main-font);
 }
 
 @font-face {

@@ -1,16 +1,17 @@
 import { createStore } from 'vuex'
+import popupModule from './popupModule'
+import vacancyModule from './vacancyModule'
 
 export default createStore({
   state: {
-    openCallPopup:true
   },
   getters: {
-    getOpenCallPopup(state){return state.openCallPopup}
   },
   mutations: {
   },
   actions: {
   },
   modules: {
+    popupModule,vacancyModule
   }
 })

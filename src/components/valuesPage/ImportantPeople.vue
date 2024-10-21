@@ -3,6 +3,7 @@
         <div class="important-people__slide">
             <transition name="slider" mode="out-in">
                 <div class="important-people__content" :key="currentSlide">
+<!-- h1 должен быть только один на странице, и он в "Энергия твоего роста! – заряжаем твою карьеру", font-size как у h1, но это h2-->
                     <h2 class="content__name">{{ slides[currentSlide].name }}</h2>
                     <p class="content__position">{{ slides[currentSlide].position }}</p>
                     <p class="content__citation">{{ slides[currentSlide].citation }}</p>
@@ -16,24 +17,20 @@
         </div>
 
         <div class="important-people__buttons">
-            <button class="buttons__left-button" @click="prevSlide">
-                <svg-icon :icon="'arrow-icon'" :w="6" :h="10" class="button__arrow" />
-            </button>
+            <arrow-button class="button__left-button" @click="prevSlide"/>
 
-            <button class="buttons__right-button" @click="nextSlide">
-                <svg-icon :icon="'arrow-icon'" :w="6" :h="10" class="button__arrow" />
-            </button>
+            <arrow-button class="button__right-button" @click="nextSlide"/>
         </div>
     </div>
 </template>
 
 <script>
-import SvgIcon from "@/components/SvgIcon.vue";
+import ArrowButton from "@/components/UI/ArrowButton.vue";
 
 export default {
     name: "important-people",
     components: {
-        SvgIcon,
+        ArrowButton
     },
     data() {
         return {
@@ -61,8 +58,7 @@ export default {
             this.currentSlide = (this.currentSlide + 1) % this.slides.length;
         },
         prevSlide() {
-            this.currentSlide =
-                (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+            this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
         },
     },
 };
@@ -79,11 +75,11 @@ export default {
     position: relative;
 
     .important-people__slide {
+
         .important-people__content {
             max-width: 630px;
             max-height: 250px;
             margin-left: calc(52% - 630px);
-            --color: #828282;
 
             .content__name {
                 margin-bottom: 20px;
@@ -94,15 +90,15 @@ export default {
             }
 
             .content__position {
-                font-size: 16px;
+                font-size: var(--p-size);
                 font-weight: 400;
                 line-height: 28px;
                 margin-bottom: 40px;
-                color: var(--color);
+                color: var(var(--gray-dark-color));
             }
 
             .content__citation {
-                font-size: 18px;
+                font-size: var(--p-size-big);
                 font-weight: 400;
                 line-height: 32px;
                 text-align: left;
@@ -127,23 +123,15 @@ export default {
         justify-content: space-between;
         gap: 20px;
 
-        .buttons__left-button {
+        .button__left-button {
             background: none;
-            height: 94px;
-            width: 52px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--border-color);
         }
 
-        .buttons__right-button {
+        .button__right-button {
             background: var(--white-color);
-            height: 94px;
-            width: 52px;
             border: none;
             transform: rotate(180deg);
-        }
-
-        .button__arrow {
-            fill: var(--dark-color);
         }
     }
 }

@@ -1,15 +1,23 @@
 :root {
     /* colors */
     --main-blue-color: #003264;
-
     --dark-color: #242627;
     --gray-color: #F7F7F7;
+    --gray-dark-color:#828282;
     --orange-color: #E9862A;
     --white-color: #FFF;
     --blue-color: #187CD3;
     --stroke-color:#EDEDED;
+    --border-color:#E0E0E0;
     
-    /* header */
-    --header-border-color:#F2F2F2;
+    /* fonts */
+    --main-font:'Helios', sans-serif;
+    --gilroy-font:'Gilroy', sans-serif;
 
+    --h1-size: 36px;
+    --h2-size: 33px;
+    --h3-size: 20px;
+    --p-size: 16px;
+    --p-size-big: 18px;
+    --contacts-size: 14px;
   }
