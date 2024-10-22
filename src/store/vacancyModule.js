@@ -1,7 +1,8 @@
 export default {
     //списков вакансий нигде не видел, по этому делаю загрузку по одной вакансии но можно загружать и по несколько если добавить массив вакансий
     state:()=>({
-        vacancy: null
+        vacancy: null,
+        resume:{}
     }),
     mutations:{
         setVacancy(state, vacancy){ state.vacancy = vacancy },
@@ -12,7 +13,6 @@ export default {
         },
     },
     actions:{
-        
         async fetchVacancyData({commit}, skip = 0){
             try {
                 //тут должно быть обращение к методу в сервисе который уже и делает запросы
@@ -29,17 +29,16 @@ export default {
             }
         },
 
-        // форматирования даты
-        formatVacancyDate(dateString) {
-            if (!dateString) return ''
-    
-            const [day, month, year] = dateString.split('.')
-            const months = [
-                "января", "февраля", "марта", "апреля", "мая", "июня",
-                "июля", "августа", "сентября", "октября", "ноября", "декабря"
-            ]
-            return `Вакансия добавлена ${parseInt(day)} ${months[parseInt(month) - 1]} 20${year}`
-        },
+        async sendResume({state, commit}){
+            try {
+                // тут должна быть проверка и всех полей
+                // обращение к сервису и к методу отправки sendResume(state.resume)
+                // commit('resumeClear') если нужно можно очистить, или оставить для удобства 
+                commit('popupModule/setActivePopup', 'popup-sends-message', { root: true });
+            } catch (error) {
+                console.error("Ошибка отправки", error)
+            }
+        }
     },
     namespaced:true
 }

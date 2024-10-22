@@ -4,7 +4,7 @@
       Продолжая использовать наш сайт, вы даете
       <router-link
         class="cookie-window__link"
-        :to="'/'"
+        :to="'/conditions-for-the-transfer-of-information'"
       >
         согласие на обработку файлов cookie
       </router-link>

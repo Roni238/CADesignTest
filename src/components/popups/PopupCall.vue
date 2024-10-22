@@ -9,36 +9,34 @@
           {{ getVacancy.salary }}
         </p>
         <orange-button class="vacancy-header__button"
-          @click="this.$store.commit('popupModule/setActivePopup', 'popup-call-form')"
+          @click="openPopup('popup-call-form')"
         >Откликнуться</orange-button>
       </header>
+
 
       <main class="vacancy-main">
         <call-list class="vacancy-main__list vacancy-main__list--duties" :array="getVacancy.responsibilities">
           Обязанности
         </call-list>
+
         <call-list class="vacancy-main__list vacancy-main__list--requirements" :array="getVacancy.requirements">
           Требования
         </call-list>
+
         <call-list class="vacancy-main__list vacancy-main__list--prerequisites" :array="getVacancy.prerequisites">
           Условия
         </call-list>
-        <p class="vacancy-main__date">{{ formatVacancyDate }}</p>
-        <orange-button class="vacancy-main__button"
-          @click="this.$store.commit('popupModule/setActivePopup', 'popup-call-form')"
-        >Откликнуться</orange-button>
+
+        <p class="vacancy-main__date"> Вакансия добавлена {{ formatDate(this.getVacancy.date) }}</p>
+
+        <orange-button class="vacancy-main__button" @click="openPopup('popup-call-form')">Откликнуться</orange-button>
       </main>
 
-      <!-- Стрелки навигации с динамическим классом для левой стрелки -->
-      <arrow-button 
-        class="vacancy__arrow vacancy__arrow--left" 
-        :class="{'vacancy__arrow--active-left': skip !== 0}"
-        @click="changeVacancy(-1)"
-      ></arrow-button>
-      
-      <arrow-button class="vacancy__arrow vacancy__arrow--right" @click="changeVacancy(1)"></arrow-button>
-      
-      <orange-button class="vacancy__close-button" @click="this.$store.commit('popupModule/setActivePopup', '')">✕</orange-button>
+
+      <!-- стрелки навигации и кнопка закрыть -->
+      <arrow-button class="vacancy__arrow vacancy__arrow--left" :class="{'vacancy__arrow--active-left': skip !== 0}" @click="changeVacancy(-1)"/>
+      <arrow-button class="vacancy__arrow vacancy__arrow--right" @click="changeVacancy(1)"/>
+      <close-popup-button/>
     </div>
 
     <div class="vacancy__loading" v-else>
@@ -49,53 +47,48 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { popupMixin } from '@/mixins/popupMixin';
+import { dateMixin } from '@/mixins/dateMixin';
 import OrangeButton from "@/components/UI/OrangeButton.vue";
 import CallList from "@/components/UI/CallList.vue";
 import ArrowButton from "@/components/UI/ArrowButton.vue";
+import ClosePopupButton from "@/components/UI/ClosePopupButton.vue";
 
 export default {
   name: "popup-call",
   components: {
     OrangeButton,
     CallList,
-    ArrowButton
+    ArrowButton,
+    ClosePopupButton
   },
   data() {
     return {
-      skip: 0 // переменная для контроля позиции
-    };
+      skip: 0 // переменная для загрузки по индексу
+    }
   },
+  mixins: [popupMixin, dateMixin],
   computed:{
     ...mapGetters({
       getVacancy:'vacancyModule/getVacancy',
-    }),
-    // форматирование даты
-    formatVacancyDate() {
-      const dateString = this.getVacancy.data;
-      if (!dateString) return '';
-      const [day, month, year] = dateString.split('.');
-      const months = [
-         "января", "февраля", "марта", "апреля", "мая", "июня",
-         "июля", "августа", "сентября", "октября", "ноября", "декабря"
-        ];
-      return `Вакансия добавлена ${parseInt(day)} ${months[parseInt(month) - 1]} 20${year}`;
-    },
+    })
   },
   methods: {
     changeVacancy(direction){
       if (this.skip + direction >= 0) {
-        this.skip += direction;
-        this.$store.dispatch('vacancyModule/fetchVacancyData', this.skip);
+        this.skip += direction
+        this.$store.dispatch('vacancyModule/fetchVacancyData', this.skip)
       }
     }
   },
   mounted() {
-    this.$store.dispatch('vacancyModule/fetchVacancyData');
+    this.$store.dispatch('vacancyModule/fetchVacancyData')
   }
 };
 </script>
 
 <style lang="scss" scoped>
+
 .vacancy {
   --button-margin: -34px;
   width: 100%;
@@ -111,9 +104,7 @@ export default {
     margin-bottom: 38px;
   
     &__title {
-      font-size: var(--h1-size);
-      font-weight: 700;
-      line-height: 41.83px;
+      margin-bottom: 38px;
     }
   
     &__salary {
@@ -131,6 +122,16 @@ export default {
   .vacancy-main {
     &__list {
       margin-top: 56px;
+
+      &--prerequisites{
+        //стилизация первого элемента с классом .call-list__item в блоке условий
+        ::v-deep .call-list__item:first-child {
+          background-color: #E9862A2B;
+          display: inline-block;
+          padding: 1px 8px;
+          
+        }
+      }
     }
   
     &__date {
@@ -179,16 +180,6 @@ export default {
       background: var(--dark-color);
       border: none;
     }
-  }
-
-  &__close-button {
-    width: 70px;
-    height: 70px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-size: 12px;
-    transform: translateX(100%);
   }
 }
 </style>

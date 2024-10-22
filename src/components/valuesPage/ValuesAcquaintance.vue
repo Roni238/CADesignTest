@@ -1,7 +1,7 @@
 <template>
     <div class="acquaintance">
-        <img src="@/assets/acquaintance_office.jpg" alt="office" class="acquaintance__image__office">
-        <img src="@/assets/acquaintance_people.png" alt="people" class="acquaintance__image__people">
+        <img v-lazy="require(`@/assets/acquaintance_office.jpg`)" alt="office" class="acquaintance__image__office">
+        <img v-lazy="require(`@/assets/acquaintance_people.png`)" alt="people" class="acquaintance__image__people">
 
         <div class="acquaintance--background"/>
 
@@ -63,9 +63,6 @@ export default {
 
     .acquaintance__title {
       margin-bottom: 85px;
-      font-size: var(--h1-size);
-      font-weight: 700;
-      line-height: 41px;
       text-align: left;
       color: var(--white-color);
     }

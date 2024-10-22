@@ -10,8 +10,7 @@ export default {
 </script>
 <style lang="scss" scoped>
     .orange-button{
-        height: 64px;
-        width: 247px;
+        padding: 22px 67px 23px 68px;
         color: var(--white-color);
         background-color: var(--orange-color);
         text-align: center;
@@ -19,6 +18,5 @@ export default {
         font-size: var(--p-size);
         font-weight: 700;
         line-height: 18.59px;
-
     }
 </style>

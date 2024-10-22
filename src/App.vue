@@ -29,6 +29,11 @@ export default {
   font-family: var(--main-font);
 }
 
+h1 {
+  font-size: var(--h1-size);
+  font-weight: 700;
+  line-height: 41.83px;
+}
 @font-face {
   font-family: 'Helios';
   src: url('@/assets/fonts/helios.otf') format('otf');

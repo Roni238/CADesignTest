@@ -9,7 +9,7 @@
                     <p class="content__citation">{{ slides[currentSlide].citation }}</p>
                     <img
                         class="content__image"
-                        :src="require(`@/assets/${slides[currentSlide].image}`)"
+                        v-lazy="require(`@/assets/${slides[currentSlide].image}`)"
                         alt="general_director"
                     />
                 </div>

@@ -27,15 +27,15 @@ export default {
                 },
                 {
                     title: "Вакансии",
-                    href: "/about"
+                    href: "/vacancy"
                 },
                 {
                     title: "Начало карьеры",
-                    href: "/about"
+                    href: "/early career"
                 },
                 {
                     title: "Контакты",
-                    href: "/about"
+                    href: "/contacts"
                 },
             ]
         }

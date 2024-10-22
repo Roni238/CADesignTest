@@ -7,10 +7,11 @@
 import {mapGetters} from 'vuex'
 import PopupCall from '@/components/popups/PopupCall.vue'
 import PopupCallForm from '@/components/popups/PopupCallForm.vue'
+import PopupSendsMessage from "@/components/popups/PopupSendsMessage.vue";
 
 export default {
     components:{
-        PopupCall, PopupCallForm
+        PopupCall, PopupCallForm, PopupSendsMessage
     },
     computed:{
         ...mapGetters({
