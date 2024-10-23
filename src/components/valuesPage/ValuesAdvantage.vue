@@ -174,8 +174,8 @@ export default {
             direction: rtl; /* инверсия грида */
 
             .button {
-                width: 345px;
-                height: 345px;
+                width: 50vw;
+                height: 50vw;
                 display: flex;
                 flex-direction: column;
                 align-items: center;

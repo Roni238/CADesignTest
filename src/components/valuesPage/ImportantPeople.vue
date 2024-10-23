@@ -183,7 +183,7 @@ export default {
             .slider__image__container{
 
                 .container__image{
-                    right: auto;
+                    right: 0px;
                 }
 
                 &__buttons{
