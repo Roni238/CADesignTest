@@ -27,6 +27,7 @@ export default {
   margin: 0px;
   padding: 0px;
   font-family: var(--main-font);
+  //border: 1px solid !important ;
 }
 
 h1 {
@@ -34,6 +35,7 @@ h1 {
   font-weight: 700;
   line-height: 41.83px;
 }
+
 @font-face {
   font-family: 'Helios';
   src: url('@/assets/fonts/helios.otf') format('otf');

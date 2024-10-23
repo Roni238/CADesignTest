@@ -43,8 +43,12 @@ export default {
         height: 24px;
         width: 24px;
         color: var(--white-color);
-        background-color: var(--orange-color);
         margin-right: 19px;
+
+        &:checked {
+            background-color: var(--orange-color);
+            border: 1px solid var(--orange-color);
+        }
     }
     .send_button{
         margin-left: auto;

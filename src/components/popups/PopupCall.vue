@@ -182,4 +182,80 @@ export default {
     }
   }
 }
+
+
+
+@media (max-width: 768px) {
+  .vacancy {
+    padding: 128px 40px 51px 40px;
+    margin: 0px;
+
+    .vacancy-header {
+      margin-bottom: 29px;
+    
+      &__title {
+        margin-bottom: 54px;
+        font-size: 32px;
+      }
+    
+      &__salary {
+        font-size: 18px;
+        margin-bottom: 47px;
+      }
+    }
+
+    .vacancy-main {
+    
+      &__date {
+        margin-top: 56px;
+        font-size: var(--p-size);
+        line-height: 24px;
+      }
+    
+      &__button {
+        margin-top: 56px;
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 320px) {
+  .vacancy {
+    padding: 80px 26px 52px 20px;
+    margin: 0px;
+
+    .vacancy-header {
+    
+      &__title {
+        margin-bottom: 23px;
+        font-size: 18px;
+      }
+      &__salary {
+        font-size: 12px;
+        margin-bottom: 29px;
+      }
+      &__button {
+        display: none;
+      }
+    }
+
+    .vacancy-main {
+    
+      &__date {
+        margin-top: 21px;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+        color: var(--gray-dark-color);
+      }
+    
+      &__button {
+        margin-top: 40px;
+      }
+    }
+  }
+}
 </style>

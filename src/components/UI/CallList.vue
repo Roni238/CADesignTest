@@ -59,4 +59,72 @@ export default {
     }
   }
 }
+
+
+@media (max-width: 768px) {
+  .call-list {
+  
+    &__title {
+      font-size: 24px;
+    }
+  
+    &__items {
+      padding: 29px 0 0 23px;
+      font-size: var(--p-size);
+      line-height: 24px;
+    }
+  
+    &__item {
+      margin-bottom: 24px;
+      position: relative;
+      list-style: none;
+  
+      /* у элементов списка дефолтная точка заменена на квадрат */
+      &::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px; 
+        height: 4px;
+        background-color: var(--main-blue-color); 
+      }
+    }
+  }
+}
+
+
+@media (max-width: 321px) {
+  .call-list {
+  
+    &__title {
+      font-size: 18px;
+    }
+  
+    &__items {
+      padding: 22px 0 0 18px;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  
+    &__item {
+      margin-bottom: 24px;
+      position: relative;
+      list-style: none;
+  
+      /* у элементов списка дефолтная точка заменена на квадрат */
+      &::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px; 
+        height: 4px;
+        background-color: var(--main-blue-color); 
+      }
+    }
+  }
+}
 </style>

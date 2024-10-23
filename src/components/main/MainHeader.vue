@@ -2,8 +2,9 @@
     <header class="header">
         <div class="header__content">
             <svg-icon :icon="'logo-icon'" :w="115" :h="25" class="header__logo"/>
+            <svg-icon :icon="'burger-icon'" :w="28" :h="18" class="header__burger"/>
 
-            <nav-vue />
+            <nav-vue class="header__nav"/>
             
             <span class="header__contacts" @click="toggleContacts">
                 Социальные сети
@@ -143,4 +144,35 @@ export default {
         }
     }
 }
+
+
+
+@media (min-width: 768px) {
+    .header__burger{
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header{
+        height: 96px;
+
+        &__content{
+            padding: 0px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .header__nav, .header__contacts {
+      display: none;
+    }
+  }
+  @media (max-width: 320px) {
+    .header{
+        height: 72px;
+    }
+    .close-button {
+        
+    }
+  }
 </style>

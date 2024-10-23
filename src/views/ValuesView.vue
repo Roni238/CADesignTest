@@ -27,4 +27,9 @@ export default {
   padding-top: 34px;
 }
 
+@media (max-width: 768px) {
+  .values-page {
+    padding: 0px;
+  }
+}
 </style>

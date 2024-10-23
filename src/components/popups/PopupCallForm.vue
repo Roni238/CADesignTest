@@ -45,7 +45,6 @@
 </template>
 
 <script>
-import OrangeButton from "@/components/UI/OrangeButton.vue";
 import InputModal from "@/components/UI/InputModal.vue";
 import PhoneInput from "@/components/UI/PhoneInput.vue";
 import FileInput from "@/components/UI/FileInput.vue";
@@ -56,7 +55,6 @@ import ClosePopupButton from "@/components/UI/ClosePopupButton.vue";
 export default {
   name: "popup-call-form",
   components: {
-    OrangeButton,
     InputModal,
     PhoneInput,
     FileInput,
@@ -119,5 +117,16 @@ export default {
         grid-area: comment;
       }
     }
+}
+
+
+@media (max-width: 768px) {
+  .call-form {
+    padding: 128px 40px 77px 40px;
+    margin: 570px auto;
+    .call-form__title {
+      margin-bottom: 53px;
+    } 
+  }
 }
 </style>

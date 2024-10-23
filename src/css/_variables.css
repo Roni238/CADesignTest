@@ -20,4 +20,8 @@
     --p-size: 16px;
     --p-size-big: 18px;
     --contacts-size: 14px;
+
+    /* breakpoints */
+    --tablets: 768px;
+    --phones: 320px;
   }

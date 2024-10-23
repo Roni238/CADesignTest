@@ -68,7 +68,8 @@ export default {
     }
 
     .acquaintance__button {
-      width: 254px;
+      max-width: 254px;
+      width: 100%;
       height: 64px;
       border: none;
       background-color: var(--orange-color);
@@ -76,13 +77,75 @@ export default {
       font-weight: 700;
       line-height: 18px;
       color: var(--white-color);
-
-      svg {
-        height: auto;
-        width: auto;
-      }
     }
   }
 }
 
+
+@media (max-width: 768px) {
+  .acquaintance {
+    height: 398px;
+
+    //.acquaintance--background{}
+
+    //.acquaintance__image__office{}
+
+    .acquaintance__image__people {
+      top: 10%;
+      scale: 0.8;
+      left: 35%;
+    }
+    .acquaintance__content {
+      height: 185px;
+      width: 384px;
+      margin-left: 5%;
+
+      .acquaintance__title {
+        font-size: 30px;
+      }
+
+      //.acquaintance__button{}
+    }
+  }
+}
+@media (max-width: 321px) {
+  .acquaintance {
+    height: 318px;
+
+    .acquaintance--background{
+      display: none;
+    }
+    .acquaintance__image__office {
+      display: none;
+    }
+    .acquaintance__image__people{
+      top: 0px;
+      scale: 0.5;
+      transform: translateX(-40%);
+      left: 0;
+    }
+    .acquaintance__content {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      top: 0;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      margin-left: 0;
+
+      .acquaintance__title {
+        font-size: 22px;
+        margin: 0px;
+        padding-top: 24px;
+      }
+      .acquaintance__button{
+        position: absolute;
+        font-size: 14px;
+        padding: 19px 29px;
+        bottom: 38px;
+      } 
+    }
+  }
+}
 </style>

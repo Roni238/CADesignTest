@@ -15,6 +15,7 @@ export default {
     actions:{
         async fetchVacancyData({commit}, skip = 0){
             try {
+                console.log(skip)
                 //тут должно быть обращение к методу в сервисе который уже и делает запросы
                 //skip передаем для загрузки конкретной вакансии (если загружаются по одной)
                 const response = await fetch("/data/vacancyData.json")
@@ -34,6 +35,7 @@ export default {
                 // тут должна быть проверка и всех полей
                 // обращение к сервису и к методу отправки sendResume(state.resume)
                 // commit('resumeClear') если нужно можно очистить, или оставить для удобства 
+                console.log('отправленно', state.resume)
                 commit('popupModule/setActivePopup', 'popup-sends-message', { root: true });
             } catch (error) {
                 console.error("Ошибка отправки", error)

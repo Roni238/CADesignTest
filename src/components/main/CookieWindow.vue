@@ -35,7 +35,8 @@ export default {
 <style lang="scss" scoped>
 .cookie-window {
   background-color: var(--white-color);
-  width: 1431px;
+  max-width: 1431px;
+  width: 100%;
   height: 125px;
   border-radius: 2px;
   position: fixed;
@@ -73,6 +74,15 @@ export default {
     height: 64px;
     width: 159px;
     border: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .cookie-window {
+    padding: 10px;
+    flex-direction: column;
+    height: auto;
   }
 }
 </style>

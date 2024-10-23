@@ -24,4 +24,24 @@ export default {
     font-size: 12px;
     transform: translateX(100%);
 }
+
+
+
+@media (max-width: 768px) {
+    .close-button {
+        width: 64px;
+        height: 64px;
+        right: 20px;
+        top: 20px;
+        transform: translateX(0%);
+    }
+}
+@media (max-width: 320px) {
+    .close-button {
+        width: 36px;
+        height: 36px;
+        right: 40px;
+        top: 40px;
+    }
+}
 </style>
