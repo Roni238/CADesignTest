@@ -161,7 +161,12 @@ export default {
     }
 }
 
-
+@media (max-width: 680px) {
+    .values-page__advantage .values-page__buttons .button {
+        width: 50vw;
+        height: 50vw;
+    }
+}
 
 @media (max-width: 768px) {
     .values-page__advantage {
@@ -174,8 +179,8 @@ export default {
             direction: rtl; /* инверсия грида */
 
             .button {
-                width: 50vw;
-                height: 50vw;
+                width: 350px;
+                height: 350px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
